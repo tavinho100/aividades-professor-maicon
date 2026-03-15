@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grêmio FBPA — Imortal Tricolor</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --azul:    #1a3c6e;
+  --azul2:   #0f2548;
+  --preto:   #080c10;
+  --ouro:    #c8a84b;
+  --ouro2:   #f0d060;
+  --branco:  #f4f4f0;
+  --cinza:   #1e242c;
+  --muted:   #6a7585;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow Condensed',sans-serif;background:var(--preto);color:var(--branco);overflow-x:hidden;}
+ul{list-style:none;}
+a{text-decoration:none;color:inherit;}
+img{display:block;}
+
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-thumb{background:var(--ouro);}
+
+/* ── HEADER ─────────────────────────────── */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:72px;padding:0 60px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(8,12,16,.9);
+  border-bottom:1px solid rgba(200,168,75,.15);
+  backdrop-filter:blur(14px);
+  transition:background .4s;
+}
+header::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,var(--ouro),transparent);
+}
+.header-logo{display:flex;align-items:center;gap:14px;}
+.header-logo canvas{height:46px;width:46px;}
+.logo-txt{
+  font-family:'Anton',sans-serif;font-size:22px;letter-spacing:3px;
+  background:linear-gradient(135deg,var(--ouro),var(--ouro2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+nav a{
+  margin-left:36px;font-size:13px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--muted);
+  transition:color .25s;position:relative;padding-bottom:3px;
+}
+nav a::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:var(--ouro);transform:scaleX(0);transition:transform .3s;
+}
+nav a:hover{color:var(--branco);}
+nav a:hover::after{transform:scaleX(1);}
+.btn-socio{
+  margin-left:36px;padding:10px 26px;
+  background:linear-gradient(135deg,var(--ouro),var(--ouro2));
+  color:var(--preto);font-size:12px;font-weight:900;letter-spacing:3px;
+  text-transform:uppercase;border:none;cursor:pointer;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+  transition:filter .25s,transform .2s;
+}
+.btn-socio:hover{filter:brightness(1.15);transform:translateY(-1px);}
+
+/* ── HERO ─────────────────────────────── */
+.hero{
+  position:relative;height:100vh;min-height:640px;
+  display:flex;align-items:center;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;}
+.hero-bg canvas{width:100%;height:100%;object-fit:cover;}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to right,rgba(8,12,16,.96) 35%,rgba(8,12,16,.5) 65%,rgba(8,12,16,.2) 100%),
+    linear-gradient(to top,rgba(8,12,16,.8) 0%,transparent 40%);
+}
+.hero-diag{
+  position:absolute;bottom:0;left:0;right:0;height:120px;
+  background:var(--preto);
+  clip-path:polygon(0 100%,100% 100%,100% 0);
+}
+
+.hero-body{
+  position:relative;z-index:2;padding:0 80px;max-width:780px;
+  animation:fadeUp .9s ease .2s both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:11px;font-weight:700;letter-spacing:5px;
+  text-transform:uppercase;color:var(--ouro);margin-bottom:18px;
+}
+.hero-kicker::before{content:'';width:36px;height:1px;background:var(--ouro);}
+
+.hero-title{
+  font-family:'Anton',sans-serif;
+  font-size:clamp(60px,10vw,140px);
+  line-height:.88;letter-spacing:1px;margin-bottom:24px;
+}
+.hero-title .g1{display:block;color:var(--branco);}
+.hero-title .g2{
+  display:block;
+  background:linear-gradient(90deg,var(--ouro),var(--ouro2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-sub{
+  font-size:20px;font-weight:400;color:rgba(244,244,240,.55);
+  line-height:1.6;margin-bottom:44px;max-width:480px;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{
+  display:inline-block;padding:16px 44px;
+  background:linear-gradient(135deg,var(--ouro),var(--ouro2));
+  color:var(--preto);font-size:13px;font-weight:900;letter-spacing:3px;
+  text-transform:uppercase;border:none;cursor:pointer;
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
+  transition:filter .25s,transform .2s,box-shadow .25s;
+}
+.btn-primary:hover{filter:brightness(1.15);transform:translateY(-2px);box-shadow:0 14px 40px rgba(200,168,75,.4);}
+.btn-ghost{
+  display:inline-block;padding:15px 44px;
+  background:transparent;color:var(--ouro);
+  border:1px solid rgba(200,168,75,.45);
+  font-size:13px;font-weight:900;letter-spacing:3px;text-transform:uppercase;cursor:pointer;
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
+  transition:background .25s,transform .2s;
+}
+.btn-ghost:hover{background:rgba(200,168,75,.08);transform:translateY(-2px);}
+
+.hero-badge{
+  position:absolute;bottom:80px;right:80px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);
+}
+.hero-badge::after{
+  content:'';width:1px;height:60px;
+  background:linear-gradient(to bottom,var(--ouro),transparent);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── TÍTULOS SECTION ─────────────────────────────── */
+.section-label{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:10px;font-weight:700;letter-spacing:5px;
+  text-transform:uppercase;color:var(--ouro);margin-bottom:18px;
+}
+.section-label::before{content:'';width:28px;height:1px;background:var(--ouro);}
+.big-title{
+  font-family:'Anton',sans-serif;
+  font-size:clamp(40px,5vw,70px);line-height:.95;margin-bottom:22px;
+}
+.big-title span{color:var(--ouro);}
+
+/* ── HISTORIA ─────────────────────────────── */
+.historia{
+  padding:120px 80px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+  background:var(--preto);position:relative;
+}
+.historia::before{
+  content:'1903';position:absolute;right:60px;top:60px;
+  font-family:'Anton',sans-serif;font-size:180px;color:rgba(200,168,75,.04);
+  line-height:1;pointer-events:none;
+}
+.historia-txt{color:rgba(244,244,240,.55);font-size:18px;line-height:1.8;font-weight:400;}
+.historia-img{position:relative;}
+.historia-img::before{
+  content:'';position:absolute;inset:-3px;z-index:-1;
+  background:linear-gradient(135deg,var(--ouro),var(--azul),var(--ouro2));opacity:.6;
+}
+.historia-img canvas{width:100%;display:block;}
+
+/* ── STATS BAND ─────────────────────────────── */
+.stats-band{
+  background:linear-gradient(135deg,var(--azul2),var(--azul));
+  padding:0;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;border-top:2px solid var(--ouro);border-bottom:2px solid var(--ouro);
+}
+.stat{
+  padding:50px 30px;text-align:center;
+  background:rgba(8,12,16,.3);
+  transition:background .3s;position:relative;overflow:hidden;
+}
+.stat:hover{background:rgba(200,168,75,.08);}
+.stat-n{
+  font-family:'Anton',sans-serif;font-size:64px;line-height:1;
+  background:linear-gradient(135deg,var(--ouro),var(--ouro2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:8px;
+}
+.stat-l{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(244,244,240,.5);font-weight:700;}
+
+/* ── TÍTULOS ─────────────────────────────── */
+.titulos{padding:120px 80px;background:var(--cinza);position:relative;overflow:hidden;}
+.titulos::after{
+  content:'';position:absolute;top:-200px;right:-200px;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(200,168,75,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.titulos-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;
+}
+.titulo-card{
+  background:var(--preto);padding:40px 30px;text-align:center;
+  position:relative;overflow:hidden;transition:background .3s,transform .3s;
+}
+.titulo-card:hover{background:#0f1318;transform:translateY(-4px);}
+.titulo-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,var(--ouro),var(--ouro2));
+  transform:scaleX(0);transition:transform .4s;
+}
+.titulo-card:hover::after{transform:scaleX(1);}
+.titulo-icon{font-size:44px;margin-bottom:16px;}
+.titulo-num{
+  font-family:'Anton',sans-serif;font-size:56px;line-height:1;
+  background:linear-gradient(135deg,var(--ouro),var(--ouro2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:8px;
+}
+.titulo-nome{font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:700;}
+
+/* ── PLANTEL ─────────────────────────────── */
+.plantel{padding:120px 80px;background:var(--preto);}
+.plantel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:60px;}
+.jogador-card{
+  background:var(--cinza);overflow:hidden;
+  transition:transform .3s;cursor:pointer;position:relative;
+}
+.jogador-card:hover{transform:translateY(-5px);z-index:2;}
+.jogador-img{position:relative;aspect-ratio:3/4;overflow:hidden;}
+.jogador-img canvas{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,filter .4s;filter:brightness(.85);}
+.jogador-card:hover .jogador-img canvas{transform:scale(1.06);filter:brightness(1);}
+.jogador-num{
+  position:absolute;top:16px;right:16px;z-index:2;
+  font-family:'Anton',sans-serif;font-size:48px;line-height:1;
+  background:linear-gradient(135deg,var(--ouro),var(--ouro2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  opacity:.8;
+}
+.jogador-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(8,12,16,.96) 0%,transparent 55%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:24px;
+}
+.jogador-pos{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ouro);font-weight:700;margin-bottom:6px;}
+.jogador-nome-ov{font-family:'Anton',sans-serif;font-size:26px;}
+.jogador-body{padding:20px 22px;background:#111620;}
+.jogador-nome{font-family:'Anton',sans-serif;font-size:20px;margin-bottom:4px;}
+.jogador-meta{display:flex;justify-content:space-between;align-items:center;}
+.jogador-nac{font-size:18px;}
+.jogador-stat{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+
+/* ── SÓCIO ─────────────────────────────── */
+.socio{
+  padding:120px 80px;
+  background:linear-gradient(135deg,var(--azul2) 0%,var(--azul) 50%,var(--azul2) 100%);
+  position:relative;overflow:hidden;text-align:center;
+}
+.socio::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a84b' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;
+}
+.socio-body{position:relative;z-index:1;max-width:700px;margin:0 auto;}
+.socio .big-title{font-size:clamp(50px,7vw,96px);}
+.socio-sub{font-size:20px;color:rgba(244,244,240,.65);line-height:1.7;margin-bottom:50px;}
+.planos{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:50px;text-align:left;}
+.plano{
+  background:rgba(8,12,16,.5);padding:36px 30px;
+  border-top:2px solid rgba(200,168,75,.3);
+  transition:background .3s,border-color .3s;
+}
+.plano:hover{background:rgba(8,12,16,.8);border-top-color:var(--ouro);}
+.plano-nome{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--ouro);font-weight:700;margin-bottom:12px;}
+.plano-preco{font-family:'Anton',sans-serif;font-size:42px;line-height:1;margin-bottom:6px;}
+.plano-periodo{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.plano-item{font-size:14px;color:rgba(244,244,240,.65);margin-bottom:8px;padding-left:18px;position:relative;}
+.plano-item::before{content:'✦';position:absolute;left:0;color:var(--ouro);font-size:10px;}
+
+/* ── NOTICIAS ─────────────────────────────── */
+.noticias{padding:120px 80px;background:var(--cinza);}
+.noticias-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3px;margin-top:60px;}
+.noticia{background:var(--preto);overflow:hidden;cursor:pointer;position:relative;transition:transform .3s;}
+.noticia:hover{transform:translateY(-4px);}
+.noticia-img{position:relative;overflow:hidden;}
+.noticia-img canvas{width:100%;display:block;transition:transform .5s,filter .4s;filter:brightness(.8);}
+.noticia:hover .noticia-img canvas{transform:scale(1.05);filter:brightness(.95);}
+.noticia-cat{
+  position:absolute;top:16px;left:16px;z-index:2;
+  font-size:9px;font-weight:900;letter-spacing:3px;text-transform:uppercase;
+  padding:5px 14px;background:var(--ouro);color:var(--preto);
+}
+.noticia-body{padding:24px;}
+.noticia-data{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--ouro);font-weight:700;margin-bottom:10px;}
+.noticia-titulo{font-family:'Anton',sans-serif;font-size:22px;line-height:1.15;margin-bottom:10px;transition:color .25s;}
+.noticia:hover .noticia-titulo{color:var(--ouro);}
+.noticia-trecho{font-size:14px;color:var(--muted);line-height:1.6;}
+.noticia-big .noticia-img canvas{aspect-ratio:16/9;}
+.noticia-sm  .noticia-img canvas{aspect-ratio:16/7;}
+.noticia-big .noticia-titulo{font-size:30px;}
+
+/* ── FOOTER ─────────────────────────────── */
+footer{
+  background:#04060a;padding:70px 80px 28px;
+  border-top:2px solid var(--ouro);
+  position:relative;
+}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:50px;}
+.ft-logo-wrap{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.ft-logo-wrap canvas{height:50px;width:50px;}
+.ft-brand{
+  font-family:'Anton',sans-serif;font-size:28px;letter-spacing:2px;
+  background:linear-gradient(135deg,var(--ouro),var(--ouro2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.ft-desc{color:var(--muted);font-size:15px;line-height:1.8;max-width:260px;}
+.ft-ht{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--ouro);font-weight:700;margin-bottom:18px;}
+.ft-links li{margin-bottom:11px;}
+.ft-links a{color:var(--muted);font-size:15px;transition:color .25s;}
+.ft-links a:hover{color:var(--branco);}
+.ft-social{display:flex;gap:12px;margin-top:24px;}
+.soc-btn{
+  width:40px;height:40px;border:1px solid rgba(200,168,75,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;transition:background .25s,border-color .25s;cursor:pointer;
+}
+.soc-btn:hover{background:rgba(200,168,75,.1);border-color:var(--ouro);}
+.ft-bot{
+  border-top:1px solid rgba(200,168,75,.1);padding-top:28px;
+  display:flex;justify-content:space-between;
+  color:var(--muted);font-size:13px;
+}
+
+/* ── MODAL ─────────────────────────────── */
+.modal{display:none;position:fixed;inset:0;background:rgba(8,12,16,.92);z-index:9000;align-items:center;justify-content:center;backdrop-filter:blur(8px);}
+.modal.on{display:flex;}
+.modal-box{
+  background:var(--cinza);padding:50px 60px;text-align:center;max-width:460px;
+  clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px));
+  animation:pop .35s cubic-bezier(.34,1.56,.64,1);
+  border-top:2px solid var(--ouro);
+}
+@keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-ico{font-size:52px;margin-bottom:18px;}
+.modal-t{font-family:'Anton',sans-serif;font-size:34px;margin-bottom:12px;color:var(--ouro);}
+.modal-p{color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:28px;}
+.modal-close{
+  background:linear-gradient(135deg,var(--ouro),var(--ouro2));color:var(--preto);
+  border:none;padding:14px 34px;font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;font-size:12px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+}
+
+/* ── TOAST ─────────────────────────────── */
+.toast{
+  position:fixed;bottom:36px;right:36px;z-index:9001;
+  background:linear-gradient(135deg,var(--ouro),var(--ouro2));color:var(--preto);
+  padding:14px 26px;font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  pointer-events:none;opacity:0;transform:translateY(16px);
+  transition:opacity .4s,transform .4s;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+}
+.toast.on{opacity:1;transform:translateY(0);}
+
+/* ── RESPONSIVE ─────────────────────────────── */
+@media(max-width:900px){
+  header{padding:0 20px;}
+  .hero-body{padding:0 24px;}
+  .historia{grid-template-columns:1fr;padding:70px 24px;gap:40px;}
+  .historia::before{display:none;}
+  .stats-band{grid-template-columns:1fr 1fr;}
+  .titulos{padding:70px 24px;}
+  .titulos-grid{grid-template-columns:1fr;}
+  .plantel{padding:70px 24px;}
+  .plantel-grid{grid-template-columns:1fr;}
+  .socio{padding:70px 24px;}
+  .planos{grid-template-columns:1fr;}
+  .noticias{padding:70px 24px;}
+  .noticias-grid{grid-template-columns:1fr;}
+  footer{padding:50px 24px 20px;}
+  .ft{grid-template-columns:1fr 1fr;gap:36px;}
+  nav{display:none;}
+  .loc-grid{grid-template-columns:1fr !important;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-logo">
+    <img id="logoH"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Gremio_logo.svg/120px-Gremio_logo.svg.png"
+      alt="Escudo Grêmio"
+      style="height:50px;width:auto;object-fit:contain;"
+      onerror="this.src='https://upload.wikimedia.org/wikipedia/pt/thumb/b/ba/Gremio_logo.svg/120px-Gremio_logo.svg.png';this.onerror=function(){this.style.display='none';document.getElementById('logoHcv').style.display='block';}">
+    <canvas id="logoHcv" width="46" height="46" style="display:none"></canvas>
+    <span class="logo-txt">GRÊMIO FBPA</span>
+  </div>
+  <nav>
+    <a href="#historia">História</a>
+    <a href="#titulos">Títulos</a>
+    <a href="#plantel">Plantel</a>
+    <a href="#noticias">Notícias</a>
+    <a href="#socio" class="btn-socio">Seja Sócio</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg" id="heroBg" style="position:absolute;inset:0;background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Arena_do_Gr%C3%AAmio_-_Porto_Alegre.jpg/1280px-Arena_do_Gr%C3%AAmio_-_Porto_Alegre.jpg') center/cover no-repeat;opacity:0.55;" onerror="document.getElementById('heroCv').style.display='block';this.style.display='none'"></div>
+  <canvas id="heroCv" width="1600" height="900" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="hero-body">
+    <p class="hero-kicker">Fundado em 15 de Setembro de 1903</p>
+    <h1 class="hero-title">
+      <span class="g1">IMORTAL</span>
+      <span class="g2">TRICOLOR</span>
+    </h1>
+    <p class="hero-sub">Mais de 120 anos de glória, raça e tradição. O Grêmio é paixão que não se explica — se sente.</p>
+    <div class="hero-btns">
+      <a href="#socio" class="btn-primary">Seja Sócio</a>
+      <a href="#titulos" class="btn-ghost">Ver Títulos</a>
+    </div>
+  </div>
+  <span class="hero-badge">scroll</span>
+  <div class="hero-diag"></div>
+</section>
+
+<!-- HISTÓRIA -->
+<section class="historia" id="historia">
+  <div>
+    <p class="section-label">Nossa História</p>
+    <h2 class="big-title">120 Anos de<br><span>Glória</span></h2>
+    <p class="historia-txt">Fundado em 15 de setembro de 1903 por jovens imigrantes alemães em Porto Alegre, o Grêmio Foot-Ball Porto Alegrense se tornou um dos clubes mais vitoriosos do Brasil e da América do Sul.<br><br>Da Vila Assunção à Arena, do primeiro gol ao tricampeonato gaúcho, cada passo dessa história foi escrito com garra, técnica e a fé inabalável de uma torcida que nunca abandona.</p>
+  </div>
+  <div class="historia-img">
+    <img id="imgHist" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Arena_do_Gr%C3%AAmio_%28panorama%29.jpg/800px-Arena_do_Gr%C3%AAmio_%28panorama%29.jpg" alt="Arena do Grêmio" style="width:100%;display:block;aspect-ratio:4/3;object-fit:cover;" onerror="this.style.display='none';document.getElementById('imgHistCv').style.display='block'">
+    <canvas id="imgHistCv" width="800" height="600" style="display:none;width:100%;"></canvas>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stat"><p class="stat-n">120+</p><p class="stat-l">Anos de História</p></div>
+  <div class="stat"><p class="stat-n">44+</p><p class="stat-l">Títulos Gaúchos</p></div>
+  <div class="stat"><p class="stat-n">3×</p><p class="stat-l">Libertadores</p></div>
+  <div class="stat"><p class="stat-n">40M+</p><p class="stat-l">Torcedores</p></div>
+</div>
+
+<!-- TÍTULOS -->
+<section class="titulos" id="titulos">
+  <p class="section-label">Conquistas</p>
+  <h2 class="big-title">Uma História de<br><span>Títulos</span></h2>
+  <div class="titulos-grid">
+    <div class="titulo-card">
+      <div class="titulo-icon">🏆</div>
+      <p class="titulo-num">3×</p>
+      <p class="titulo-nome">Copa Libertadores</p>
+    </div>
+    <div class="titulo-card">
+      <div class="titulo-icon">🌍</div>
+      <p class="titulo-num">1×</p>
+      <p class="titulo-nome">Mundial Interclubes</p>
+    </div>
+    <div class="titulo-card">
+      <div class="titulo-icon">🇧🇷</div>
+      <p class="titulo-num">2×</p>
+      <p class="titulo-nome">Campeonato Brasileiro</p>
+    </div>
+    <div class="titulo-card">
+      <div class="titulo-icon">🥇</div>
+      <p class="titulo-num">44×</p>
+      <p class="titulo-nome">Campeonato Gaúcho</p>
+    </div>
+    <div class="titulo-card">
+      <div class="titulo-icon">🏅</div>
+      <p class="titulo-num">5×</p>
+      <p class="titulo-nome">Copa do Brasil</p>
+    </div>
+    <div class="titulo-card">
+      <div class="titulo-icon">⭐</div>
+      <p class="titulo-num">1×</p>
+      <p class="titulo-nome">Recopa Sul-Americana</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLANTEL -->
+<section class="plantel" id="plantel">
+  <p class="section-label">2025</p>
+  <h2 class="big-title">Nosso<br><span>Plantel</span></h2>
+  <ul class="plantel-grid">
+    <li class="jogador-card">
+      <div class="jogador-img">
+        <span class="jogador-num">1</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Agust%C3%ADn_March%C3%ADs%C3%ADn_2019.jpg/600px-Agust%C3%ADn_March%C3%ADs%C3%ADn_2019.jpg" alt="Marchesín" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s,filter .4s;filter:brightness(.85);" onerror="this.style.display='none';document.getElementById('jog1').style.display='block'">
+        <canvas id="jog1" width="600" height="800" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"></canvas>
+        <div class="jogador-overlay">
+          <p class="jogador-pos">Goleiro</p>
+          <h3 class="jogador-nome-ov">Marchesín</h3>
+        </div>
+      </div>
+      <div class="jogador-body">
+        <h2 class="jogador-nome">Agustín Marchesín</h2>
+        <div class="jogador-meta">
+          <span class="jogador-nac">🇦🇷</span>
+          <span class="jogador-stat">Goleiro · #1</span>
+        </div>
+      </div>
+    </li>
+    <li class="jogador-card">
+      <div class="jogador-img">
+        <span class="jogador-num">10</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Franco_Cristaldo_%282023%29.jpg/600px-Franco_Cristaldo_%282023%29.jpg" alt="Cristaldo" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s,filter .4s;filter:brightness(.85);" onerror="this.style.display='none';document.getElementById('jog2').style.display='block'">
+        <canvas id="jog2" width="600" height="800" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"></canvas>
+        <div class="jogador-overlay">
+          <p class="jogador-pos">Meia</p>
+          <h3 class="jogador-nome-ov">Cristaldo</h3>
+        </div>
+      </div>
+      <div class="jogador-body">
+        <h2 class="jogador-nome">Cristaldo</h2>
+        <div class="jogador-meta">
+          <span class="jogador-nac">🇦🇷</span>
+          <span class="jogador-stat">Meia · #10</span>
+        </div>
+      </div>
+    </li>
+    <li class="jogador-card">
+      <div class="jogador-img">
+        <span class="jogador-num">9</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Martin_Braithwaite_2018.jpg/600px-Martin_Braithwaite_2018.jpg" alt="Braithwaite" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s,filter .4s;filter:brightness(.85);" onerror="this.style.display='none';document.getElementById('jog3').style.display='block'">
+        <canvas id="jog3" width="600" height="800" style="display:none;width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"></canvas>
+        <div class="jogador-overlay">
+          <p class="jogador-pos">Atacante</p>
+          <h3 class="jogador-nome-ov">Braithwaite</h3>
+        </div>
+      </div>
+      <div class="jogador-body">
+        <h2 class="jogador-nome">Martin Braithwaite</h2>
+        <div class="jogador-meta">
+          <span class="jogador-nac">🇩🇰</span>
+          <span class="jogador-stat">Atacante · #9</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- SÓCIO -->
+<section class="socio" id="socio">
+  <div class="socio-body">
+    <p class="section-label" style="justify-content:center;">Associe-se</p>
+    <h2 class="big-title">Seja<br><span>Sócio</span></h2>
+    <p class="socio-sub">Faça parte da maior família tricolor do Brasil. Benefícios exclusivos, descontos e acesso prioritário aos jogos.</p>
+    <div class="planos">
+      <div class="plano">
+        <p class="plano-nome">Sócio Prata</p>
+        <p class="plano-preco">R$ 39,90</p>
+        <p class="plano-periodo">por mês</p>
+        <p class="plano-item">Desconto em ingressos</p>
+        <p class="plano-item">Carteirinha digital</p>
+        <p class="plano-item">Acesso ao app</p>
+      </div>
+      <div class="plano" style="border-top-color:var(--ouro);background:rgba(200,168,75,.08);">
+        <p class="plano-nome">Sócio Ouro</p>
+        <p class="plano-preco">R$ 79,90</p>
+        <p class="plano-periodo">por mês</p>
+        <p class="plano-item">Tudo do Prata</p>
+        <p class="plano-item">Prioridade na compra</p>
+        <p class="plano-item">Desconto na loja</p>
+        <p class="plano-item">Eventos exclusivos</p>
+      </div>
+      <div class="plano">
+        <p class="plano-nome">Sócio Diamante</p>
+        <p class="plano-preco">R$ 149,90</p>
+        <p class="plano-periodo">por mês</p>
+        <p class="plano-item">Tudo do Ouro</p>
+        <p class="plano-item">Cadeira cativa</p>
+        <p class="plano-item">Meet & Greet anual</p>
+        <p class="plano-item">Kit oficial exclusivo</p>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="openModal()">Quero Ser Sócio Agora</button>
+  </div>
+</section>
+
+<!-- NOTÍCIAS -->
+<section class="noticias" id="noticias">
+  <p class="section-label">Últimas</p>
+  <h2 class="big-title">Fique Por<br><span>Dentro</span></h2>
+  <div class="noticias-grid">
+    <div class="noticia noticia-big">
+      <div class="noticia-img">
+        <span class="noticia-cat">Destaque</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Gr%C3%AAmio_x_The_Strongest_no_Couto_Pereira_07.jpg/800px-Gr%C3%AAmio_x_The_Strongest_no_Couto_Pereira_07.jpg" alt="Grêmio em campo" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:transform .5s,filter .4s;filter:brightness(.8);" onerror="this.style.display='none';document.getElementById('n1').style.display='block'">
+        <canvas id="n1" width="800" height="450" style="display:none;width:100%;"></canvas>
+      </div>
+      <div class="noticia-body">
+        <p class="noticia-data">14 Mar 2025</p>
+        <h3 class="noticia-titulo">Grêmio vence clássico e assume liderança do Gauchão 2025</h3>
+        <p class="noticia-trecho">Com gol nos acréscimos, o Tricolor superou o rival em partida eletrizante na Arena.</p>
+      </div>
+    </div>
+    <div class="noticia noticia-sm">
+      <div class="noticia-img">
+        <span class="noticia-cat">Transferência</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Manifestação_da_Torcida_do_Grêmio_FBPA.jpg/400px-Manifestação_da_Torcida_do_Grêmio_FBPA.jpg" alt="Torcida Grêmio" style="width:100%;aspect-ratio:16/7;object-fit:cover;display:block;transition:transform .5s,filter .4s;filter:brightness(.8);" onerror="this.style.display='none';document.getElementById('n2').style.display='block'">
+        <canvas id="n2" width="400" height="220" style="display:none;width:100%;"></canvas>
+      </div>
+      <div class="noticia-body">
+        <p class="noticia-data">12 Mar 2025</p>
+        <h3 class="noticia-titulo">Novo reforço é confirmado para o meio-campo tricolor</h3>
+        <p class="noticia-trecho">Contratação foi anunciada oficialmente pelo clube.</p>
+      </div>
+    </div>
+    <div class="noticia noticia-sm">
+      <div class="noticia-img">
+        <span class="noticia-cat">Arena</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Arena_do_Gr%C3%AAmio_-_Porto_Alegre.jpg/400px-Arena_do_Gr%C3%AAmio_-_Porto_Alegre.jpg" alt="Arena do Grêmio" style="width:100%;aspect-ratio:16/7;object-fit:cover;display:block;transition:transform .5s,filter .4s;filter:brightness(.8);" onerror="this.style.display='none';document.getElementById('n3').style.display='block'">
+        <canvas id="n3" width="400" height="220" style="display:none;width:100%;"></canvas>
+      </div>
+      <div class="noticia-body">
+        <p class="noticia-data">10 Mar 2025</p>
+        <h3 class="noticia-titulo">Arena do Grêmio bate recorde de público na temporada</h3>
+        <p class="noticia-trecho">Mais de 55 mil torcedores estiveram presentes no último jogo em casa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section style="padding:100px 80px;background:var(--preto);">
+  <p class="section-label">Onde Estamos</p>
+  <h2 class="big-title" style="margin-bottom:50px;">Nossa<br><span>Sede</span></h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;align-items:stretch;">
+
+    <!-- Mapa -->
+    <div style="position:relative;min-height:420px;overflow:hidden;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.0!2d-51.2258!3d-30.0678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951979a7bec3a7b3%3A0x6f27a6a81bdc6f0c!2sArena%20do%20Gr%C3%AAmio!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr"
+        width="100%" height="100%"
+        style="border:0;display:block;min-height:420px;filter:grayscale(40%) contrast(1.1);"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <div style="position:absolute;inset:0;pointer-events:none;border:2px solid rgba(200,168,75,.3);"></div>
+    </div>
+
+    <!-- Info cards -->
+    <div style="display:flex;flex-direction:column;gap:3px;">
+
+      <div style="background:var(--cinza);padding:36px 40px;flex:1;position:relative;overflow:hidden;border-left:3px solid var(--ouro);">
+        <div style="position:absolute;top:0;right:0;font-family:'Anton',sans-serif;font-size:80px;color:rgba(200,168,75,.04);line-height:1;pointer-events:none;">ARENA</div>
+        <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--ouro);font-weight:700;margin-bottom:14px;">🏟️ Estádio</p>
+        <h3 style="font-family:'Anton',sans-serif;font-size:28px;margin-bottom:10px;">Arena do Grêmio</h3>
+        <p style="color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:16px;">
+          Av. Padre Leopoldo Brentano, 110<br>
+          Humaitá — Porto Alegre, RS<br>
+          CEP 90250-140
+        </p>
+        <div style="display:flex;gap:24px;flex-wrap:wrap;">
+          <span style="font-size:13px;color:rgba(244,244,240,.6);">🪑 <strong style="color:var(--branco);">55.225</strong> lugares</span>
+          <span style="font-size:13px;color:rgba(244,244,240,.6);">📅 <strong style="color:var(--branco);">Inaugurada em 2012</strong></span>
+        </div>
+      </div>
+
+      <div style="background:var(--cinza);padding:36px 40px;flex:1;border-left:3px solid var(--ouro);">
+        <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--ouro);font-weight:700;margin-bottom:14px;">🏢 Sede Administrativa</p>
+        <h3 style="font-family:'Anton',sans-serif;font-size:28px;margin-bottom:10px;">CT Luiz Carvalho</h3>
+        <p style="color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:16px;">
+          Rua João Moreira Maciel, 680<br>
+          Marcílio Dias — Porto Alegre, RS<br>
+          (antigo Parque do Remo)
+        </p>
+        <div style="display:flex;gap:24px;flex-wrap:wrap;">
+          <span style="font-size:13px;color:rgba(244,244,240,.6);">⏰ <strong style="color:var(--branco);">Seg–Sex 9h–18h</strong></span>
+          <span style="font-size:13px;color:rgba(244,244,240,.6);">📞 <strong style="color:var(--branco);">(51) 3218-2000</strong></span>
+        </div>
+      </div>
+
+      <div style="background:linear-gradient(135deg,var(--azul2),var(--azul));padding:36px 40px;border-left:3px solid var(--ouro);">
+        <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--ouro);font-weight:700;margin-bottom:14px;">🚍 Como Chegar</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div>
+            <p style="font-size:12px;font-weight:700;color:var(--branco);margin-bottom:6px;letter-spacing:1px;">ÔNIBUS</p>
+            <p style="font-size:13px;color:rgba(244,244,240,.6);line-height:1.6;">Linhas T1, 343 e 197 com parada na Arena</p>
+          </div>
+          <div>
+            <p style="font-size:12px;font-weight:700;color:var(--branco);margin-bottom:6px;letter-spacing:1px;">CARRO</p>
+            <p style="font-size:13px;color:rgba(244,244,240,.6);line-height:1.6;">Acesso pela Av. Padre Leopoldo Brentano</p>
+          </div>
+          <div>
+            <p style="font-size:12px;font-weight:700;color:var(--branco);margin-bottom:6px;letter-spacing:1px;">METRÔ</p>
+            <p style="font-size:13px;color:rgba(244,244,240,.6);line-height:1.6;">Estação Anchieta + conexão de ônibus</p>
+          </div>
+          <div>
+            <p style="font-size:12px;font-weight:700;color:var(--branco);margin-bottom:6px;letter-spacing:1px;">ESTACIONAMENTO</p>
+            <p style="font-size:13px;color:rgba(244,244,240,.6);line-height:1.6;">8.000 vagas no complexo da Arena</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div>
+      <div class="ft-logo-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Gremio_logo.svg/120px-Gremio_logo.svg.png"
+          alt="Grêmio"
+          style="height:54px;width:auto;object-fit:contain;"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/pt/thumb/b/ba/Gremio_logo.svg/120px-Gremio_logo.svg.png';this.onerror=function(){this.style.display='none';document.getElementById('logoF').style.display='block';}">
+        <canvas id="logoF" width="50" height="50" style="display:none;"></canvas>
+        <span class="ft-brand">GRÊMIO FBPA</span>
+      </div>
+      <p class="ft-desc">Grêmio Foot-Ball Porto Alegrense. Fundado em 15 de setembro de 1903. Imortal Tricolor.</p>
+      <div class="ft-social">
+        <div class="soc-btn">𝕏</div>
+        <div class="soc-btn">f</div>
+        <div class="soc-btn">▶</div>
+        <div class="soc-btn">📸</div>
+      </div>
+    </div>
+    <div>
+      <p class="ft-ht">Clube</p>
+      <ul class="ft-links">
+        <li><a href="#historia">História</a></li>
+        <li><a href="#titulos">Títulos</a></li>
+        <li><a href="#plantel">Plantel</a></li>
+        <li><a href="#noticias">Notícias</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="ft-ht">Torcedor</p>
+      <ul class="ft-links">
+        <li><a href="#socio">Seja Sócio</a></li>
+        <li><a href="#">Ingressos</a></li>
+        <li><a href="#">Loja Oficial</a></li>
+        <li><a href="#">Futebol Feminino</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="ft-ht">Contato</p>
+      <ul class="ft-links">
+        <li><a href="#">Arena do Grêmio</a></li>
+        <li><a href="#">Imprensa</a></li>
+        <li><a href="#">Fale Conosco</a></li>
+        <li><a href="#">Transparência</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2025 Grêmio Foot-Ball Porto Alegrense. Todos os direitos reservados.</span>
+    <span>Privacidade · Termos</span>
+  </div>
+</footer>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="modal-ico">🏆</div>
+    <h3 class="modal-t">Bem-vindo, Tricolor!</h3>
+    <p class="modal-p">Obrigado pelo interesse! Em breve nossa equipe entrará em contato para concluir seu cadastro de sócio.</p>
+    <button class="modal-close" onclick="closeModal()">Fechar</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ── CANVAS DRAW ENGINE ──────────────────── */
+function drawCanvas(id, cfg) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const w = el.width, h = el.height;
+  const ctx = el.getContext('2d');
+
+  // Base gradient
+  const g = ctx.createLinearGradient(0, 0, w, h);
+  cfg.bg.forEach((c,i) => g.addColorStop(i/(cfg.bg.length-1), c));
+  ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+
+  // Radial glow
+  const rg = ctx.createRadialGradient(w*.5,h*.4,0,w*.5,h*.4,Math.min(w,h)*.65);
+  rg.addColorStop(0,(cfg.glow||'#c8a84b')+'33');
+  rg.addColorStop(1,'transparent');
+  ctx.fillStyle = rg; ctx.fillRect(0,0,w,h);
+
+  // Diagonal stripes (tricolor feel)
+  if (cfg.stripes) {
+    for (let i=-4; i<20; i++) {
+      ctx.fillStyle = 'rgba(200,168,75,0.04)';
+      ctx.save();
+      ctx.translate(i*(w/6),0);
+      ctx.beginPath();
+      ctx.moveTo(0,0); ctx.lineTo(w/12,0); ctx.lineTo(w/12+h,h); ctx.lineTo(h,h);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  // Subtle grid
+  ctx.strokeStyle = 'rgba(200,168,75,0.07)'; ctx.lineWidth=1;
+  const s = Math.min(w,h)*.07;
+  for(let x=0;x<w;x+=s){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
+  for(let y=0;y<h;y+=s){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+
+  // Scanlines
+  for(let y=0;y<h;y+=4){ctx.fillStyle='rgba(0,0,0,.06)';ctx.fillRect(0,y,w,2);}
+
+  // Main emoji/icon
+  if (cfg.emoji) {
+    const es = Math.min(w,h)*(cfg.es||.28);
+    ctx.save();
+    ctx.font=`${es}px serif`;
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.shadowColor=cfg.glow||'#c8a84b'; ctx.shadowBlur=40;
+    ctx.fillText(cfg.emoji, w*(cfg.ex||.5), h*(cfg.ey||.38));
+    ctx.restore();
+  }
+
+  // Title
+  if (cfg.title) {
+    const ts = Math.min(w,h)*(cfg.ts||.072);
+    ctx.save();
+    ctx.font=`900 ${ts}px 'Anton',sans-serif`;
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.shadowColor=cfg.glow||'#c8a84b'; ctx.shadowBlur=16;
+    ctx.fillStyle='#f4f4f0';
+    ctx.fillText(cfg.title, w*.5, h*(cfg.ty||.68));
+    ctx.restore();
+  }
+
+  // Sub-label
+  if (cfg.sub) {
+    const ss = Math.min(w,h)*(cfg.ts||.072)*.55;
+    ctx.save();
+    ctx.font=`700 ${ss}px 'Barlow Condensed',monospace`;
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillStyle=cfg.glow||'#c8a84b'; ctx.globalAlpha=.9;
+    ctx.fillText(cfg.sub, w*.5, h*(cfg.ty||.68)+Math.min(w,h)*(cfg.ts||.072)*1.35);
+    ctx.restore();
+  }
+
+  // Glow border
+  ctx.strokeStyle=(cfg.glow||'#c8a84b')+'55'; ctx.lineWidth=3;
+  ctx.strokeRect(2,2,w-4,h-4);
+}
+
+/* ── ESCUDO GRÊMIO (canvas vector) ──────────── */
+function drawEscudo(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const w = el.width, h = el.height;
+  const ctx = el.getContext('2d');
+  const cx = w/2, cy = h/2;
+
+  // Shield shape
+  ctx.beginPath();
+  ctx.moveTo(cx, h*.05);
+  ctx.lineTo(w*.92, h*.05);
+  ctx.lineTo(w*.92, h*.55);
+  ctx.quadraticCurveTo(w*.92, h*.88, cx, h*.97);
+  ctx.quadraticCurveTo(w*.08, h*.88, w*.08, h*.55);
+  ctx.lineTo(w*.08, h*.05);
+  ctx.closePath();
+
+  // Tricolor fill - azul
+  ctx.fillStyle = '#1a3c6e';
+  ctx.fill();
+
+  // Diagonal preto stripe
+  ctx.save();
+  ctx.clip();
+  ctx.fillStyle = '#080c10';
+  ctx.beginPath();
+  ctx.moveTo(w*.3, h*.05); ctx.lineTo(w*.62, h*.05);
+  ctx.lineTo(w*.38, h*.97); ctx.lineTo(w*.06, h*.97);
+  ctx.closePath(); ctx.fill();
+
+  // Branco stripe
+  ctx.fillStyle = '#f4f4f0';
+  ctx.beginPath();
+  ctx.moveTo(w*.28, h*.05); ctx.lineTo(w*.3, h*.05);
+  ctx.lineTo(w*.06, h*.97); ctx.lineTo(w*.04, h*.97);
+  ctx.closePath(); ctx.fill();
+  ctx.restore();
+
+  // Border
+  ctx.strokeStyle = '#c8a84b'; ctx.lineWidth = w*.05;
+  ctx.beginPath();
+  ctx.moveTo(cx, h*.05);
+  ctx.lineTo(w*.92, h*.05);
+  ctx.lineTo(w*.92, h*.55);
+  ctx.quadraticCurveTo(w*.92, h*.88, cx, h*.97);
+  ctx.quadraticCurveTo(w*.08, h*.88, w*.08, h*.55);
+  ctx.lineTo(w*.08, h*.05);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Stars (3 libertadores)
+  ctx.fillStyle = '#c8a84b';
+  ctx.font = `${w*.18}px serif`;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('⭐⭐⭐', cx, h*.35);
+
+  // "GRÊMIO" text
+  ctx.fillStyle = '#f4f4f0';
+  ctx.font = `900 ${w*.12}px 'Anton',sans-serif`;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.shadowColor='rgba(0,0,0,.6)'; ctx.shadowBlur=4;
+  ctx.fillText('GRÊMIO', cx, h*.62);
+  ctx.font = `700 ${w*.08}px 'Barlow Condensed',sans-serif`;
+  ctx.fillText('FBPA', cx, h*.76);
+  ctx.shadowBlur=0;
+}
+
+/* ── DRAW ALL IMAGES ──────────────────── */
+// Escudos fallback
+drawEscudo('logoHcv');
+drawEscudo('logoF');
+
+// Hero fallback
+drawCanvas('heroCv', {
+  bg:['#04060a','#0a0f1a','#04060a'],
+  glow:'#c8a84b', stripes:true,
+  emoji:'⚽', es:.14, ey:.45,
+  title:'IMORTAL TRICOLOR', ts:.06, ty:.72
+});
+
+// História fallback
+drawCanvas('imgHistCv', {
+  bg:['#060a10','#0d1525','#060a10'],
+  glow:'#c8a84b', stripes:true,
+  emoji:'🏟️', es:.3, ey:.36,
+  title:'ARENA DO GRÊMIO', ts:.07, ty:.74,
+  sub:'PORTO ALEGRE · RS'
+});
+
+// Jogadores fallback
+drawCanvas('jog1', {
+  bg:['#06080e','#0e1428','#06080e'],
+  glow:'#c8a84b',
+  emoji:'🧤', es:.28, ey:.36,
+  title:'MARCHESÍN', ts:.07, ty:.7, sub:'GOLEIRO · #1'
+});
+drawCanvas('jog2', {
+  bg:['#08060e','#14102a','#08060e'],
+  glow:'#f0d060',
+  emoji:'⚡', es:.28, ey:.36,
+  title:'CRISTALDO', ts:.07, ty:.7, sub:'MEIA · #10'
+});
+drawCanvas('jog3', {
+  bg:['#060e08','#0e2014','#060e08'],
+  glow:'#c8a84b',
+  emoji:'🎯', es:.28, ey:.36,
+  title:'BRAITHWAITE', ts:.065, ty:.7, sub:'ATACANTE · #9'
+});
+
+// Notícias fallback
+drawCanvas('n1', {
+  bg:['#04060a','#0c1020','#04060a'],
+  glow:'#c8a84b', stripes:true,
+  emoji:'⚽', es:.18, ey:.42,
+  title:'GAUCHÃO 2025', ts:.065, ty:.76
+});
+drawCanvas('n2', {
+  bg:['#060a04','#101a08','#060a04'],
+  glow:'#c8a84b',
+  emoji:'🔄', es:.22, ey:.38,
+  title:'REFORÇO', ts:.085, ty:.74
+});
+drawCanvas('n3', {
+  bg:['#06040a','#14082a','#06040a'],
+  glow:'#c8a84b',
+  emoji:'🏟️', es:.22, ey:.38,
+  title:'ARENA', ts:.085, ty:.74
+});
+
+/* ── MODAL / TOAST ──────────────────── */
+function openModal(){ document.getElementById('modal').classList.add('on'); }
+function closeModal(){ document.getElementById('modal').classList.remove('on'); }
+document.getElementById('modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal();});
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('on');
+  setTimeout(()=>t.classList.remove('on'),2800);
+}
+
+// Plano click
+document.querySelectorAll('.plano').forEach(p=>{
+  p.addEventListener('click',()=>{
+    showToast('✦ Plano ' + p.querySelector('.plano-nome').textContent + ' selecionado!');
+  });
+});
+
+// Smooth scroll para links internos
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}
+  });
+});
+
+// Header scroll effect
+window.addEventListener('scroll',()=>{
+  document.querySelector('header').style.background =
+    window.scrollY > 60 ? 'rgba(8,12,16,.98)' : 'rgba(8,12,16,.9)';
+});
+</script>
+</body>
+</html>
